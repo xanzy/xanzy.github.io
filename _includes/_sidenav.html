@@ -1,0 +1,11 @@
+<ul class="side-nav">
+  {% for group in site.data.projects[page.project].link_groups %}
+  <li class="heading">{{ group.name }}</li>
+  {% for link in group.links %}
+  <li><a href="{{ site.url }}/projects/{{ page.project }}{{ link.url }}">{{ link.name }}</a></li>
+  {% endfor %}
+  {% if forloop.last == false %}
+  <li class="divider"></li>
+  {% endif %}
+  {% endfor %}
+</ul>

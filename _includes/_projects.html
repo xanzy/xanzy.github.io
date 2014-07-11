@@ -1,0 +1,7 @@
+<ul class="side-nav">
+  <li class="heading">Projects:</li>
+  <li class="divider"></li>
+  {% for project in site.data.projects %}
+  <li><a href="{{ site.url }}/projects/{{ project[1].name | downcase }}">{{ project[1].name }}</a></li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,36 @@
+#sidenav {
+  float: left;
+  width: 200px;
+}
+
+#sidenav .side-nav {
+  display: block;
+  margin-top: -10px;
+  padding: 0.77778rem 0;
+  list-style-type: none;
+  list-style-position: inside;
+}
+
+#sidenav .side-nav li.heading {
+  padding: 2px 0px;
+  text-transform: uppercase;
+}
+
+#sidenav .side-nav li {
+  margin: 0;
+  padding: 0;
+}
+
+#sidenav .side-nav li a {
+  padding: 0.33333rem 0;
+  display: block;
+}
+
+#sidenav .side-nav li.divider {
+  border-top: 1px solid;
+  height: 0;
+  margin: 16px 0px;
+  padding: 0;
+  list-style: none;
+  border-top-color: #d8d8d8;
+}

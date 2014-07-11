@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<head>
+  {% include _head.html %}
+</head>
+
+<body>
+  <header>
+    <div class="inner">
+      <h1>{{ site.data.projects[page.project].name }}</h1>
+      <h2>{{ site.data.projects[page.project].description }}</h2>
+      <div class="logo"><img src="{{ site.url }}/images/{{ site.data.projects[page.project].logo }}"></div>
+    </div>
+  </header>
+
+  <div id="content-wrapper">
+    <div class="inner clearfix">
+      <div id="sidenav">
+        {% include _sidenav.html %}
+      </div>
+      <section id="main-content">
+        {{ content }}
+      </section>
+    </div>
+  </div>
+</body>

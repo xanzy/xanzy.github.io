@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<head>
+  {% include _head.html %}
+</head>
+
+<body>
+  <header>
+    <div class="inner">
+      <img src="{{ site.url }}/images/{{ site.logo }}" style="margin-left: -20px">
+      <h2>{{ site.description }}</h2>
+    </div>
+  </header>
+
+  <div id="content-wrapper">
+    <div class="inner clearfix">
+      <div id="sidenav">
+        {% include _projects.html %}
+      </div>
+      <section id="main-content">
+        {{ content }}
+      </section>
+    </div>
+  </div>
+</body>

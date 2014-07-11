@@ -1,0 +1,13 @@
+# Site settings
+title:          Xanzy Open Source Projects
+description:    A platform to host my open source initiatives
+logo:           xanzy.png
+url:            http://xanzy.io
+timezone:       Europe/Amsterdam
+
+# Build settings
+exclude:        ["CNAME", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", ".gitignore"]
+markdown:       kramdown
+permalink:      /:categories/:title/
+gems:
+  - jekyll-redirect-from
