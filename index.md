@@ -10,11 +10,12 @@ Yes, I do believe sharing code is the right thing to do! But at the same time le
 
 Thankfully I learned (long time ago already, but habits are hard to break) that it will never be perfect and that you will keep learning and improving yourself everday. So you can refactor all your code every week without actually ever finishing anything, or you can just put the stuff you have today out there and just see how it envolves.
 
-#### Adding new projects
-The project list is currently still pretty empty (even through the first one on there is a really cool one if you ask me ;) but the list will grow over time as I will move more of my projects over here.
+### Big 'thank you' to Schuberg Philis!
+[Schuberg Philis](https://www.schubergphilis.com), my current employer, heavily encourages and supports open source software. Thanks to this I'm allowed to open source and share some of the projects created 'on the job'. So a big **thanks** for that!
 
 ### Contact Details
-**Email:** sander at xanzy dot io\\
+**Email:** sander@xanzy.io\\
 **IRC:** svanharmelen\\
 **Github:** [svanharmelen](https://github.com/svanharmelen){:target="_blank"}\\
 **Twitter:** [@\_svanharmelen\_](https://twitter.com/_svanharmelen_){:target="_blank"}
+
