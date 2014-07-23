@@ -7,7 +7,7 @@ All code and content for <http://xanzy.io> is located in this repo. Feel free to
 
 The following directories and their contents are Copyrighted by Xanzy - Sander van Harmelen. You may not reuse anything therein without my permission:
 
-* _projects/
+* projects/
 * images/
 
 All other directories and files are 'Apache License, Version 2.0' licensed.
