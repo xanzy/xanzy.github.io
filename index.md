@@ -14,7 +14,7 @@ Thankfully I learned (long time ago already, but habits are hard to break) that 
 [Schuberg Philis](https://www.schubergphilis.com), my current employer, heavily encourages and supports open source software. Thanks to this I'm allowed to open source and share some of the projects created 'on the job'. So a big **thanks** for that!
 
 ### Contact Details
-**Email:** sander@xanzy.io\\
+**Email:** <sander@xanzy.io>\\
 **IRC:** svanharmelen\\
 **Github:** [svanharmelen](https://github.com/svanharmelen){:target="_blank"}\\
 **Twitter:** [@\_svanharmelen\_](https://twitter.com/_svanharmelen_){:target="_blank"}
