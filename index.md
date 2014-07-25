@@ -15,7 +15,7 @@ Thankfully I learned (long time ago already, but habits are hard to break) that 
 
 ### Contact Details
 **Email:** <sander@xanzy.io>\\
-**IRC:** [svanharmelen](irc://chat.freenode.net/svanharmelen)\\
+**IRC:** svanharmelen\\
 **Github:** [svanharmelen](https://github.com/svanharmelen){:target="_blank"}\\
 **Twitter:** [@\_svanharmelen\_](https://twitter.com/_svanharmelen_){:target="_blank"}
 
