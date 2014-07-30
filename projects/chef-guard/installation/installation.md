@@ -13,3 +13,5 @@ As you can clearly see on this picture all Chef components are build around the 
 ![Server Components with Chef-Guard]({{ site.url }}/images/server_components_with_cg.png)
 
 ## _Work in progress, more comming soon..._
+
+Need to make sure you alter the NGINX setting `client_max_body_size 10M`
