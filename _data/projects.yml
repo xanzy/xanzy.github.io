@@ -43,4 +43,3 @@ chef-guard:
           url: "/configuration/graphite_section.html"
         - name: "Customer Section(s)"
           url: "/configuration/customer_section.html"
-
