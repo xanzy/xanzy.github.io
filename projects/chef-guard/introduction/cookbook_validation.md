@@ -31,7 +31,7 @@ When the comparison succeeds and the matching cookbook was found in an untagged 
 #### Publishing the cookbook
 If you don't have a local [Chef Supermarket](https://github.com/opscode/supermarket){:target="_blank"} installation, this is currently probably the best you can do in in order to manage the version of your private cookbooks. But if you have gone the extra mile and also have a local Supermarket installation, your are really in for a treat!
 
-In that case Chef-Guard can be configured to upload the cookbook directly to your local Supermarket. By doing so you now have a clean artifact of the cookbook that is being frozen for future use. If you also have a local Berkshelf API server this cookbook will now also be indexed so next time Chef-Guards needs to search for the cookbook/version combination it can find it much faster and much more reliable.
+In that case Chef-Guard can be configured to upload the cookbook directly to your local Supermarket. By doing so you now have a clean artifact of the cookbook that is being frozen for future use.
 
 _NOTE: Of course another big advantage of having your cookbook directly uploaded to the local Supermarket, is that all your colleagues who are using the local Supermarket to search for existing private cookbooks, can now instantly find the new cookbook!_
 
