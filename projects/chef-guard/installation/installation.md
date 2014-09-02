@@ -64,7 +64,7 @@ The IP addresses used here may be different from your actual setup. Make sure yo
 
 After your done editing the configuration, just run `chef-server-ctl reconfigure` when using Open Source Chef, or `private-chef-ctl reconfigure` when sing Enterprise Chef. That's all... Your done! All calls to your Chef Server are now first routed to Chef-Guard instead.
 
-_NOTE:  When using Enterpise Chef version < 11.1.8, you need to manually fix a bug in the private-chef cookbook (the internal cookbook used by Chef to manage it's own setup) before running the reconfigure command. Please change line 323 of `/opt/opscode/embedded/cookbooks/private-chef/libraries/private_chef.rb` from `PrivateChef["lb"]["upstream"] = Mash.new` to `PrivateChef["lb"]["upstream"] ||= Mash.new`. After that you should be able to succesfully execute the reconfigure command._
+_NOTE:  When using Enterpise Chef version < 11.2.0, you need to manually fix a bug in the private-chef cookbook (the internal cookbook used by Chef to manage it's own setup) before running the reconfigure command. Please change line 323 of `/opt/opscode/embedded/cookbooks/private-chef/libraries/private_chef.rb` from `PrivateChef["lb"]["upstream"] = Mash.new` to `PrivateChef["lb"]["upstream"] ||= Mash.new`. After that you should be able to succesfully execute the reconfigure command._
 
 ### Starting Chef-Guard
 If all steps are followed correctly, starting Chef-Guard is as easy as typing `sudo start chef-guard` :)
