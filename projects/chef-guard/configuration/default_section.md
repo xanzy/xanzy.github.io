@@ -24,6 +24,8 @@ Each of the different sections will first show the applicable part of the config
   blacklist       =      # This can be multiple regexes divided by a ','
   gitorganization = chef-guard
   gitcookbookorgs = org1, org2 # When using multiple orgs (divided by a ','), the order here determines the lookup order!
+  includefcs      =      # This should be the full path to a custom .rb file containing your custom checks
+  excludefcs      =      # This can be multiple FC's divided by a ','
 ~~~
 
 #### listen
@@ -73,3 +75,9 @@ The Github organization Chef-Guard uses to [commit all config]({{ site.url }}/pr
 
 #### gitcookbookorgs
 A comma separated list of Github organizations that Chef-Guard will use to [search for source cookbooks]({{ site.url }}/projects/chef-guard/introduction/cookbook_validation.html#comparing-the-cookbook).
+
+#### includefcs
+A (full) path to a ruby file containing custom foodcritic tests. When a file with custom checks is supplied, these will be executed in addition to the default foodcritic tests.
+
+#### excludefcs
+A comma separated list of FC's you would like to exclude (e.g. FC001, FC0031)
