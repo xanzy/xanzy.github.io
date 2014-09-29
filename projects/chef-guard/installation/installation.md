@@ -47,9 +47,16 @@ vi supermarket.pem
 ### Enable the Chef-Guard component within the Chef Server config
 **This step is needed in all cases. So regardless of your installation method, please follow this step!**
 
-The last action you need to take before you can actually start using Chef-Guard, is to reconfigure the Chef components so all calls will be redirected to Chef-Guard instead of to Chef Server. This could maybe sound a little daunting, but it's actually pretty easy. There is a file called `/etc/chef-server/chef-server.rb` for Open Source Chef, and a file called `/etc/opscode/private-chef.rb` for Enterpise Chef which can contain all kinds of configuration tweaks needed your Chef Servers. Open the file applicable to your version of Chef and add the following configuration to the file:
+The last action you need to take before you can actually start using Chef-Guard, is to reconfigure the Chef components so all calls will be redirected to Chef-Guard instead of to Chef Server. This could maybe sound a little daunting, but it's actually pretty easy. There is a file called `/etc/chef-server/chef-server.rb` for Open Source Chef, and a file called `/etc/opscode/private-chef.rb` for Enterprise Chef which can contain all kinds of configuration tweaks needed your Chef Servers. Open the file applicable to your version of Chef and add the following configuration to the file:
 
 ~~~ ini
+Example for Open Source Chef:
+
+lb['upstream']['erchef'] = ["127.0.0.2"]
+
+
+Example for Enterprise Chef:
+
 lb['upstream'] = {
  "opscode-erchef"=>["127.0.0.2"],
  "opscode-account"=>["127.0.0.1"],
@@ -61,6 +68,12 @@ lb['upstream'] = {
 ~~~
 
 The IP addresses used here may be different from your actual setup. Make sure you fill in the correct addresses and set the 'opscode-erchef' address to the IP address you configured Chef-Guard to listen on.
+
+_NOTE: When testing this on the latest Open Source Chef, it did not work as expected. We are currently looking into that, but for the mean time you should edit line 193 the file /opt/chef-server/embedded/cookbooks/chef-server/attributes/default.rb to look like this:_
+
+~~~ ini
+193: default['chef_server']['lb']['upstream']['erchef'] = [ "127.0.0.2" ]
+~~~
 
 After your done editing the configuration, just run `chef-server-ctl reconfigure` when using Open Source Chef, or `private-chef-ctl reconfigure` when sing Enterprise Chef. That's all... Your done! All calls to your Chef Server are now first routed to Chef-Guard instead.
 
