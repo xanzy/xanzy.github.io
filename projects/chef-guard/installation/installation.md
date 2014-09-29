@@ -50,7 +50,7 @@ vi supermarket.pem
 The last action you need to take before you can actually start using Chef-Guard, is to reconfigure the Chef components so all calls will be redirected to Chef-Guard instead of to Chef Server. This could maybe sound a little daunting, but it's actually pretty easy.
 
 #### Enterprise Chef
-There is a file called `/etc/opscode/private-chef.rb` for Enterprise Chef which can contain all kinds of configuration tweaks needed your Chef Servers. Open the file and add the following configuration to the file:
+There is a file called `/etc/opscode/private-chef.rb` for Enterprise Chef which can contain all kinds of configuration tweaks needed by your Chef Servers. Open the file and add the following configuration to the file:
 
 ~~~ ini
 lb['upstream'] = {
@@ -63,14 +63,14 @@ lb['upstream'] = {
 }
 ~~~
 
+The IP addresses used here may be different from your actual setup. Make sure you fill in the correct addresses and set the 'opscode-erchef' address to the IP address you configured Chef-Guard to listen on.
+
 #### Open Source Chef
-Open Source Chef has a similar file called `/etc/chef-server/chef-server.rb` to make customizations to your installation, but hen testing this on the latest Open Source Chef, it did not work as expected. We are currently looking into that, but for the mean time you should edit line 193 the file /opt/chef-server/embedded/cookbooks/chef-server/attributes/default.rb to look like this to configure Open Source Chef to work with Chef-Guard:
+Open Source Chef has a similar file called `/etc/chef-server/chef-server.rb` to make customizations to your installation, but when testing this on the latest Open Source Chef, it did not work as expected. We are currently looking into that, but for the mean time you should edit line 193 the file `/opt/chef-server/embedded/cookbooks/chef-server/attributes/default.rb` to look like this:
 
 ~~~ ini
 193: default['chef_server']['lb']['upstream']['erchef'] = [ "127.0.0.2" ]
 ~~~
-
-The IP addresses used here may be different from your actual setup. Make sure you fill in the correct addresses and set the 'opscode-erchef' or 'erchef' address to the IP address you configured Chef-Guard to listen on.
 
 After your done editing the configuration, just run `chef-server-ctl reconfigure` when using Open Source Chef, or `private-chef-ctl reconfigure` when sing Enterprise Chef. That's all... Your done! All calls to your Chef Server are now first routed to Chef-Guard instead.
 
