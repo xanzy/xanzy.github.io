@@ -1,6 +1,7 @@
 ---
 layout: project
 project: chef-guard
+project_name: Chef-Guard
 redirect_from:
   - /projects/chef-guard/
   - /projects/chef-guard/introduction/
