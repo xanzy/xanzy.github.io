@@ -17,7 +17,7 @@ Each of the different sections will first show the applicable part of the config
   mailserver      = smtp.company.com
   mailport        = 25
   mailrecipient   = chef-changes@company.com
-  validatechanges = false
+  validatechanges = permissive  # Valid options are 'silent', 'permissive' and 'enforced'
   commitchanges   = false
   mailchanges     = true
   searchgithub    = true
@@ -54,7 +54,7 @@ The port Chef-Guard will connect to when connecting to the mailserver.
 A mail(list) address used to send all [configuration changes]({{ site.url }}/projects/chef-guard/introduction/monitoring_auditing.html#mailing-changes) to.
 
 #### validatechanges
-A configuration option to enable or disable the [validation of changes]({{ site.url }}/projects/chef-guard/workflows/configuration_changes.html).
+This configures the behavior of the [change validation workflow]({{ site.url }}/projects/chef-guard/workflows/configuration_changes.html). Silent mode will prevent validating the changes all together. Enforced mode on the other hand requires the validation to be succesfull (e.g. your cookbook constraints should all be met). So the mode in between is permissive. In this mode your changes are saved even when there are constraints that are not met, but next to saving the change it will also give you an error message so you know what still needs to be fixed. So this is a very good mode to use when starting with Chef-Guard.
 
 #### commitchanges
 A configuration option to enable or disable [commiting changes]({{ site.url }}/projects/chef-guard/introduction/monitoring_auditing.html#committing-changes) to Github.
