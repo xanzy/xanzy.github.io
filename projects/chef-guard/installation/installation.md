@@ -73,7 +73,14 @@ Open Source Chef has a similar file called `/etc/chef-server/chef-server.rb` to 
 193: default['chef_server']['lb']['upstream']['erchef'] = [ "127.0.0.2" ]
 ~~~
 
-After your done editing the configuration, just run `chef-server-ctl reconfigure` when using Open Source Chef, or `private-chef-ctl reconfigure` when sing Enterprise Chef. That's all... Your done! All calls to your Chef Server are now first routed to Chef-Guard instead.
+#### Chef 12
+In case you're using Chef 12 you need to edit `/opt/opscode/embedded/cookbooks/private-chef/attributes/default.rb`:
+
+~~~ ini
+266: default['private_chef']['lb']['upstream']['opscode-erchef'] = [ "127.0.0.2" ]
+~~~
+
+After your done editing the configuration, just run `chef-server-ctl reconfigure` when using Open Source Chef, or `private-chef-ctl reconfigure` when using Enterprise Chef. That's all... Your done! All calls to your Chef Server are now first routed to Chef-Guard instead.
 
 _NOTE:  When using Enterpise Chef version < 11.2.2, you need to manually fix a bug in the private-chef cookbook (the internal cookbook used by Chef to manage it's own setup) before running the reconfigure command. Please change line 323 of `/opt/opscode/embedded/cookbooks/private-chef/libraries/private_chef.rb` from `PrivateChef["lb"]["upstream"] = Mash.new` to `PrivateChef["lb"]["upstream"] ||= Mash.new`. After that you should be able to succesfully execute the reconfigure command._
 
