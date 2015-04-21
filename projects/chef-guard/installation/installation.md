@@ -73,8 +73,8 @@ Open Source Chef has a similar file called `/etc/chef-server/chef-server.rb` to 
 193: default['chef_server']['lb']['upstream']['erchef'] = [ "127.0.0.2" ]
 ~~~
 
-#### Private Chef 12
-In case you're using private installation of Chef 12 you need to edit `/opt/opscode/embedded/cookbooks/private-chef/attributes/default.rb`:
+#### Chef 12
+In case you're using Chef 12 you need to edit `/opt/opscode/embedded/cookbooks/private-chef/attributes/default.rb`:
 
 ~~~ ini
 266: default['private_chef']['lb']['upstream']['opscode-erchef'] = [ "127.0.0.2" ]
