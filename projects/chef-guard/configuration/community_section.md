@@ -5,17 +5,17 @@ project_name: Chef-Guard
 ---
 
 ### Community Section
-Each of the different sections will first show the applicable part of the configuration and then explain every config option seperately.
+Each of the different sections will first show the applicable part of the configuration and then explain every config option separately.
 
 ~~~ ini
 [community]
-  supermarket     = https://supermarket.getchef.com
-  forks           = org1
+  supermarket     = https://supermarket.chef.io
+  forks           = org1     # When using multiple orgs (divided by a ','), the order here determines the lookup order!
 ~~~
 
 #### supermarket
 The address of the community Supermarket. At the time of writing this is <https://supermarket.getchef.com>.
 
 #### forks
-A Github organization where Chef-Guard will search for forked community cookbooks. \\
+A GitHub organizations or GitLap projects where Chef-Guard will search for forked community cookbooks. \\
 _NOTE: This options need more/better explaning!_

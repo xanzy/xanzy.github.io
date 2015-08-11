@@ -5,50 +5,58 @@ project_name: Chef-Guard
 ---
 
 ### Default Section
-Each of the different sections will first show the applicable part of the configuration and then explain every config option seperately.
+Each of the different sections will first show the applicable part of the configuration and then explain every config option separately.
 
 ~~~ ini
 [default]
-  listen          = 127.0.0.2
+  listenip        = 127.0.0.2
+  listenport      = 8000
   logfile         = /var/log/chef-guard.log
   tempdir         = /var/tmp/chef-guard
-  mode            = silent      # Valid options are 'silent', 'permissive' and 'enforced'
+  mode            = silent        # Valid options are 'silent', 'permissive' and 'enforced'
   maildomain      = company.com
   mailserver      = smtp.company.com
   mailport        = 25
+  mailsendby      =               # Leave blank to dynamically use the mailaddress of the user making the API call (preferred)
   mailrecipient   = chef-changes@company.com
-  validatechanges = permissive  # Valid options are 'silent', 'permissive' and 'enforced'
+  validatechanges = permissive    # Valid options are 'silent', 'permissive' and 'enforced'
   commitchanges   = false
   mailchanges     = true
-  searchgithub    = true
+  searchgit       = true
   publishcookbook = true
-  blacklist       =      # This can be multiple regexes divided by a ','
+  blacklist       =               # This can be multiple regexes divided by a ','
   gitorganization = chef-guard
-  gitcookbookorgs = org1, org2 # When using multiple orgs (divided by a ','), the order here determines the lookup order!
-  includefcs      =      # This should be the full path to a custom .rb file containing your custom checks
-  excludefcs      =      # This can be multiple FC's divided by a ','
+  gitcookbookorgs = org1, org2    # When using multiple orgs (divided by a ','), the order here determines the lookup order!
+  includefcs      =               # This should be the full path to a custom .rb file containing your custom checks
+  excludefcs      =               # This can be multiple FC's divided by a ','
 ~~~
 
-#### listen
+#### listenip
 The IP address the Chef-Guard server will bind to. As Chef-Guard should always run on your Chef Server, the default of `127.0.0.2` makes the most sense and doesn't require any additional configuration.
+
+#### listenport
+The port the Chef-Guard server will listen on. The default of `8000` makes the most sense as this value doesn't require any additional configuration.
 
 #### logfile
 The logfile Chef-Guard will use to write all log events to.
 
 #### tempdir
-In order to run the tests (e.g. foodcritic, rubocop) the cookbook files need to be on disk. The tempdir is used to stage the files of cookbooks that are being tested.
+In order to run the tests (e.g. Foodcritic, Rubocop) the cookbook files need to be on disk. The temp dir is used to stage the files of cookbooks that are being tested.
 
 #### mode
 This determines the mode Chef-Guard operates in. In silent mode it will only do monitoring and auditing. When changing to permissive mode, Chef-Guard will also do validations and tests but in this mode you can bypass failed tests by using `--force` while uploading a cookbook. When you set Chef-Guard to operate in enforced mode there is no more escaping or bypassing possible. All validations and tests must be green in order for a change or cookbook upload to succeed. Please see (among other sections) the [Cookbook Upload]({{ site.url }}/projects/chef-guard/workflows/cookbook_upload.html) section for more details.
 
 #### maildomain
-This domain is used to set the sending mail domain. Settings this to a correct value may help prevent mail from Chef-Guard being threated as spam. In addition the domain is also used to convert Chef usernames to mail adresses (by simply prepending the maildomain to the username).
+This domain is used to set the sending mail domain. Settings this to a correct value may help prevent mail from Chef-Guard being treated as spam. In addition the domain is also used to convert Chef usernames to mail addresses (by simply prepending the mail domain to the username).
 
 #### mailserver
 The server Chef-Guard will use to send mail.
 
 #### mailport
-The port Chef-Guard will connect to when connecting to the mailserver.
+The port Chef-Guard will connect to when connecting to the mail server.
+
+#### mailsendby
+The mail address used as reply address when sending any mail.
 
 #### mailrecipient
 A mail(list) address used to send all [configuration changes]({{ site.url }}/projects/chef-guard/introduction/monitoring_auditing.html#mailing-changes) to.
@@ -62,23 +70,23 @@ A configuration option to enable or disable [commiting changes]({{ site.url }}/p
 #### mailchanges
 A configuration option to enable or disable [sending changes]({{ site.url }}/projects/chef-guard/introduction/monitoring_auditing.html#mailing-changes) by mail.
 
-#### searchgithub
-A configuration option to enable or disable [searching Github]({{ site.url }}/projects/chef-guard/introduction/cookbook_validation.html#comparing-the-cookbook) for source cookbooks.
+#### searchgit
+A configuration option to enable or disable [searching GitHub/GitLab]({{ site.url }}/projects/chef-guard/introduction/cookbook_validation.html#comparing-the-cookbook) for source cookbooks.
 
 #### publishcookbook
 A Configuration option to enable or disable the [automatic uploading]({{ site.url }}/projects/chef-guard/introduction/cookbook_validation.html#publishing-the-cookbook) of cookbook to a private Supermarket.
 
 #### blacklist
-A comma separated list of regexes. Cookbooks matching one of the regexes will **not** be uploaded to the Supermarket, even when `publishcookbooks = true`.
+A comma separated list of regexes. Cookbooks matching one of the regexps will **not** be uploaded to the Supermarket, even when `publishcookbooks = true`.
 
 #### gitorganization
-The Github organization Chef-Guard uses to [commit all config]({{ site.url }}/projects/chef-guard/introduction/monitoring_auditing.html#committing-changes) info into. When using Open Source Chef a repo called `config` needs to be created in this organization. When using Enterpise Chef, you need to create a repo for every Chef Organzation you have configured to be monitored using Chef-Guard.
+The GitHub organization or GitLap group Chef-Guard uses to [commit all config]({{ site.url }}/projects/chef-guard/introduction/monitoring_auditing.html#committing-changes) info into. When using Open Source Chef 11 a repo/project called `config` needs to be created in this organization/group. When using Enterprise Chef 11 or Chef 12, you need to create a repo/project for every Chef Organization you have configured to be monitored using Chef-Guard.
 
 #### gitcookbookorgs
-A comma separated list of Github organizations that Chef-Guard will use to [search for source cookbooks]({{ site.url }}/projects/chef-guard/introduction/cookbook_validation.html#comparing-the-cookbook).
+A comma separated list of GitHub organizations and GitLab groups that Chef-Guard will use to [search for source cookbooks]({{ site.url }}/projects/chef-guard/introduction/cookbook_validation.html#comparing-the-cookbook).
 
 #### includefcs
-A (full) path to a ruby file containing custom foodcritic tests. When a file with custom checks is supplied, these will be executed in addition to the default foodcritic tests.
+A (full) path to a ruby file containing custom Foodcritic tests. When a file with custom checks is supplied, these will be executed in addition to the default Foodcritic tests.
 
 #### excludefcs
-A comma separated list of FC's you would like to exclude (e.g. FC001, FC0031)
+A comma separated list of Foodcritic tests you would like to exclude (e.g. FC001, FC0031)

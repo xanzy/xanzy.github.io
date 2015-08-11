@@ -5,7 +5,7 @@ project_name: Chef-Guard
 ---
 
 ### Tests Section
-Each of the different sections will first show the applicable part of the configuration and then explain every config option seperately.
+Each of the different sections will first show the applicable part of the configuration and then explain every config option separately.
 
 ~~~ ini
 [tests]
@@ -14,7 +14,7 @@ Each of the different sections will first show the applicable part of the config
 ~~~
 
 #### foodcritic
-The path to the foodcritic binary. If you do not want Chef-Guard to execute this test, you should leave this field empty.
+The path to the Foodcritic binary. If you do not want Chef-Guard to execute this test, you should leave this field empty.
 
 #### rubocop
-The path to the rubocop binary. If you do not want Chef-Guard to execute this test, you should leave this field empty.
+The path to the Rubocop binary. If you do not want Chef-Guard to execute this test, you should leave this field empty.
