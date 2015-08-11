@@ -16,8 +16,8 @@ Each of the different sections will first show the applicable part of the config
 
 [git "org1"]
   type            = gitlab   # Valid options are 'github' and 'gitlab'
-  serverurl       =          # Empty means that it will use gitlab.com
-  sslnoverify     = false
+  serverurl       = https://gitlab.company.com/api/v3
+  sslnoverify     = true
   token           = xxx
 ~~~
 
