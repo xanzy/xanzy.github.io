@@ -14,7 +14,7 @@ Each of the different sections will first show the applicable part of the config
 ~~~
 
 #### supermarket
-The address of the community Supermarket. At the time of writing this is <https://supermarket.getchef.com>.
+The address of the community Supermarket.
 
 #### forks
 A GitHub organizations or GitLap projects where Chef-Guard will search for forked community cookbooks. \\
