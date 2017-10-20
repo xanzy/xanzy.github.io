@@ -44,10 +44,10 @@ The IP address your ErChef API (the actual Chef Server so to speak) currently is
 The port your ErChef API (the actual Chef Server so to speak) is listening on. Unless you specifically altered the default, this should be `8000`.
 
 #### bookshelfkey
-The bookshelf access_key_id. Could be found in either `/etc/opscode/private-chef-secrets.json` (for Enterpise Chef 11) or `/etc/chef-server/chef-server-secrets.json` (for Open Source Chef 11 and Chef 12).
+The bookshelf access_key_id. Could be found in either `/etc/opscode/private-chef-secrets.json` (for Enterpise Chef 11), `/etc/chef-server/chef-server-secrets.json` (for Open Source Chef 11 and Chef 12), or `/etc/opscode/chef-server-running.json` (for later versions of Chef 12).
 
 #### bookshelfsecret
-The bookshelf secret_access_key. Could be found in either `/etc/opscode/private-chef-secrets.json` (for Enterpise Chef 11) or `/etc/chef-server/chef-server-secrets.json` (for Open Source Chef 11 and Chef 12).
+The bookshelf secret_access_key. Could be found in either `/etc/opscode/private-chef-secrets.json` (for Enterpise Chef 11), `/etc/chef-server/chef-server-secrets.json` (for Open Source Chef 11 and Chef 12), or `/etc/opscode/chef-server-running.json` (for later versions of Chef 12).
 
 #### user
 A Chef user which has access to your Chef Server (for Open Source Chef 11) or is invited to all configured Chef Organizations (for Enterprise Chef 11 or Chef 12).
