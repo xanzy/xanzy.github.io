@@ -9,5 +9,5 @@ timezone:       Europe/Amsterdam
 exclude:        ["CNAME", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", ".gitignore"]
 markdown:       kramdown
 permalink:      /:categories/:title/
-gems:
+plugins:
   - jekyll-redirect-from
